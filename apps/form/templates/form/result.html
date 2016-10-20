@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 10px auto;
+            font-family: cursive;
+            ;
+        }
+
+        #div1 {
+            border: 8px ridge blue;
+            padding: 20px;
+            height: 25px;
+            width: 400px;
+            padding-top: 5px;
+            font-family: fantasy;
+            text-align: center;
+        }
+
+        #div2 {
+            border: 8px ridge green;
+            padding: 20px;
+            height: 360px;
+            width: 340px;
+            padding-top: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        p {
+            display: inline-block;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        #comment {
+            vertical-align: top;
+        }
+
+        .input {
+            display: inline-block;
+        }
+
+        #commentdiv {
+            width: 340px;
+            overflow-x: auto;
+        }
+
+        html {
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='div1'>
+        You have submitted this form {{request.session.count}} time(s) now.
+    </div>
+    <div id='div2'>
+        <h2>Submmitted Information</h2>
+        <hr>
+        <p>Your Name: </p> {{request.session.name}} <br>
+        <p>Dojo Location: </p> {{request.session.dojo}} <br>
+        <p>Favorite Language: </p> {{request.session.fav_language}} <br>
+        <div id='commentdiv'>
+            <p>Comment: </p> {{request.session.Comment}} </div> <br>
+        <form class="input" action="/" method="post">
+            {% csrf_token %}
+            <input class='input' type="submit" name="back" value="Back to Form">
+        </form>
+        <form class="input" action="reset" method="post">
+            {% csrf_token %}
+            <input class='input' type="submit" name="reset" value="Reset">
+        </form>
+    </div>
+</body>
+
+</html>

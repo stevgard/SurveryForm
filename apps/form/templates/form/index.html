@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 10px auto;
+            font: arial;
+        }
+
+        div {
+            border: 8px ridge green;
+            padding: 20px;
+            height: 300px;
+            width: 340px;
+            padding-top: 5px;
+        }
+
+        p {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        #comment {
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form class="" action="results" method="post">
+            {% csrf_token %}
+            <p>Your Name: </p><input type="text" name="name" value=""> <br>
+            <p>Dojo Location: </p>
+            <select name="dojo">
+      <option value="Bellevue">Bellevue/Seattle, WA</option>
+      <option value="San Jose">San Jose, CA</option>
+      <option value="Austin">Austin, TX</option>
+    </select> <br> <br>
+            <p>Favorite Language: </p>
+            <select name="fav_language">
+      <option value="Python">Python</option>
+      <option value="C#"
+      <option value="Java">Java</option>
+      <option value="Ruby">Ruby</option>
+    </select> <br>
+            <p id='comment'>Comment: (Optional) </p>
+            <textarea name="Comment" rows="6" cols="30"></textarea> <br>
+            <input id='submit' type="submit" name="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
